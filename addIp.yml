@@ -1,0 +1,26 @@
+---
+- name: Assign IP addresses to hosts
+  hosts: all
+  gather_facts: false
+
+  vars:
+    ip_addresses:
+      - 192.168.1.10
+      - 192.168.1.11
+      - 192.168.1.12
+      - 192.168.1.13
+      - 192.168.1.14
+      - 192.168.1.15
+      - 192.168.1.16
+      - 192.168.1.17
+      - 192.168.1.18
+      - 192.168.1.19
+      - 192.168.1.20
+      - 192.168.1.21
+      - 192.168.1.22      
+      # Add more IP addresses as needed
+
+  tasks:
+    - name: Assign IP address
+      ansible.builtin.set_fact:
+        ansible_host: "{{ ip_addresses[ansible_play_hosts_all.index(inventory_hostname)] }}"

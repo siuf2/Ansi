@@ -1,0 +1,13 @@
+---
+
+  - name: Get Ubuntu 16, and ready
+    hosts:  all
+    sudo: yes
+    gather_facts: no
+
+    tasks:
+
+      - name: install python-simplejson
+        raw:  sudo apt-get -y update
+        raw:  sudo apt-get -y install python-simplejson
+        raw:  sudo apt-get install python-apt
